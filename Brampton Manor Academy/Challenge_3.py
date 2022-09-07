@@ -1,8 +1,9 @@
-import math
-answer = int(input("Enter a number between 10 and 49"))
+print("We are going to play a game. I want you to pick a number then do a series of calculation. I bet I know what the result of those calculations will be!")
+
+answer = int(input("*You* This will be the answer. Select a number between 10-49: "))
 factor = 99 - answer
 
-f_answer = int(input("Enter a number between 50 and 99"))
+f_answer = int(input("*Player* Pick any number 50-99: "))
 adding = f_answer + factor
 
 def calculation (adding):
@@ -15,6 +16,7 @@ def calculation (adding):
     new_total = f_answer - total
     return new_total
 
+print("")
 print(f"I said the answer was {answer} and the calculation result is {calculation(adding)}")
 
 
