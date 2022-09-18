@@ -51,56 +51,47 @@ def process_results(rows):
         
     return dictionary
 
+file_contents = read_csv(csv_file)
+sortedByPoints = {k: v for k, v in sorted(process_results(file_contents).items() ,key = lambda v: v[1][1] and v[1], reverse = True)}
+print("")
+print(f"{'Club':<30}{'PTS':<5}{'GD':<5}{'W':<5}{'D':<5}{'L':<5}")
+print("")
+
+def clubs_name(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    return clubs[i]
+
+def totalPoints(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    names = clubs[i]
+    return sortedByPoints[names][0]
+
+def goalDifference(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    names = clubs[i]
+    return sortedByPoints[names][1]
+
+def wins(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    names = clubs[i]
+    return sortedByPoints[names][2]
+
+def draws(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    names = clubs[i]
+    return sortedByPoints[names][3]
+
+def loses(sortedByPoints):
+    clubs = list(sortedByPoints.keys())
+    names = clubs[i]
+    return sortedByPoints[names][4]
+
+
 
 if __name__ == "__main__":
-    file_contents = read_csv(csv_file)
-    sortedByPoints = {k: v for k, v in sorted(process_results(file_contents).items() ,key = lambda v: v[1][1] and v[1], reverse = True)}
-    print(sortedByPoints)
-    print("")
-    print("Club                    PTS  GD  W  D  L")
-    print("")
-
-    def clubs_name(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (len(clubs)):
-            print(clubs[i])
-
-    def totalPoints(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (0, len(clubs)):
-            names = clubs[i]
-            print(sortedByPoints[names][0])
-
-    def goalDifference(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (0, len(clubs)):
-            names = clubs[i]
-            print(sortedByPoints[names][1])
-
-    def wins(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (0, len(clubs)):
-            names = clubs[i]
-            print(sortedByPoints[names][2])
-
-    def draws(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (0, len(clubs)):
-            names = clubs[i]
-            print(sortedByPoints[names][3])
-
-    def loses(sortedByPoints):
-        clubs = list(sortedByPoints.keys())
-        for i in range (0, len(clubs)):
-            names = clubs[i]
-            print(sortedByPoints[names][4])
-
-    print(clubs_name(sortedByPoints))
-    print(totalPoints(sortedByPoints))
-    print(goalDifference(sortedByPoints))
-    print(wins(sortedByPoints))
-    print(draws(sortedByPoints))
-    print(loses(sortedByPoints))
+    clubs = list(sortedByPoints.keys())
+    for i in range (0, len(clubs)):
+        print(f"{clubs_name(sortedByPoints):<30}{totalPoints(sortedByPoints):<5}{goalDifference(sortedByPoints):<5}{wins(sortedByPoints):<5}{draws(sortedByPoints):<5}{loses(sortedByPoints):<5}")
         
    
 
